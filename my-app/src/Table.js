@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 const TableHeader = () =>{
     return (
         <thead>
         <tr>
           <th>Name</th>
-          <th>State</th>
+          <th>Surname</th>
           <th>Remove</th>
         </tr>
       </thead>
@@ -17,7 +17,7 @@ const TableBody =(props) =>{
         return(
             <tr key={index}>
                 <td>{row.name}</td>
-                <td>{row.state}</td>
+                <td>{row.surname}</td>
                 <td>
                     <button onClick={ () => props.removeCharacter(index)}>Delete</button>
                 </td>
