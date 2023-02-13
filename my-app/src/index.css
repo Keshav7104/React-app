@@ -1019,6 +1019,36 @@ caption {
     width: 100%;
   }
 }
+*{
+  background-color: #d2d2d2;
+}
+.container{
+  background-color: #116466;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+h1{
+  background-color: #ffcb9a;
+  padding: 20px;
+  text-align: center;
+  color: #2c3531
+}
+h2,th,label{
+  background-color: #ffcb9a;
+  text-align: center;
+  color: #2c3531;
+}
+#name,#surname{
+  background-color: white;
+}
+button,#but{
+  display: block;
+  background-color: #116466;
+  margin: 10px;
+}
+td{
+  text-align: center;
+}
 
 /*
  * Navigation

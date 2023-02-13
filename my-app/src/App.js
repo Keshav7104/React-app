@@ -40,6 +40,9 @@ class App extends Component {
         const { characters } =this.state;
         return(
             <div className="container">
+                <h1>Names Table</h1>
+                <h2>in react.js</h2>
+                <h2>Type your Name and Surname Here :- </h2>
                 <Table characterData={characters} removeCharacter={this.removeCharacter}/>
                 <Form handleSubmit={this.handleSubmit}/>
             </div>
