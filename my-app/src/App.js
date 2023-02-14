@@ -1,53 +1,57 @@
-import React,{ Component } from "react";
-import Table from "./Table";
-import Form from "./Form";
+import { useState } from "react";
+import "./App.css";
 
-class App extends Component {
-    
-    state ={ 
-        characters : []
-            // {
-            //     name : "Keshav",
-            //     state : "Haryana",
-            // },
-            // {
-            //     name : "Sachin",
-            //     state : "Maharashtra",
-            // },
-            // {
-            //     name : "Sahil",
-            //     state : "Assam",
-            // },
-            // {
-            //     name : "Vanshika",
-            //     state : "Uttar-Pradesh",
-            // },
-    };
-    removeCharacter =(index) => {
-        const { characters } = this.state;
+function App () {
+  let [todoList,setTodoList] =useState([]);
+  let [newTask,setNewTask] = useState("");
 
-        this.setState({
-            characters: characters.filter((characters, i) => {
-                return i !== index;
-            }),
-        })
+  const handletask = (Event) =>{
+    setNewTask(Event.target.value);
+  }
+
+  const Addtask = () =>{
+    let isadded = todoList.some(task => {
+      if(task === newTask){
+        return true;
+      }
+      else{
+        return false;
+      }
+    })
+      if(isadded){
+        window.alert('Task already in list');
+      }
+      else{
+        setTodoList([...todoList,newTask]);
+      }
+  // setTodoList([...todoList,newTask]);
     }
 
-    handleSubmit = (character) => {
-        this.setState({characters: [...this.state.characters,character]});
-    }
-    render() {
-        const { characters } =this.state;
-        return(
-            <div className="container">
-                <h1>Names Table</h1>
-                <h2>in react.js</h2>
-                <h2>Type your Name and Surname Here :- </h2>
-                <Table characterData={characters} removeCharacter={this.removeCharacter}/>
-                <Form handleSubmit={this.handleSubmit}/>
-            </div>
-        )
-    }
+
+  const deletetask =(taskname) =>{
+    const newlist =todoList.filter((task) => {
+      return (task===taskname?false:true);
+    })
+    setTodoList(newlist);
+  }
+
+  return (
+    <div class="App">
+      <div>Add your Text here
+        <input type="text" onChange={handletask}></input>
+        <button onClick={Addtask}>Add</button>
+        </div>
+      <div>
+        {todoList.map((task) => {
+          return (
+            <div><h1>{task}</h1>
+            <button onClick={() => deletetask(task)}>Remove</button>
+            <button >Done ?</button></div>
+          );
+        })}
+      </div>
+    </div>
+  )
 }
 
-export default App
+export default App;

@@ -1,0 +1,17 @@
+.App{
+    text-align: center;
+    color: lightcoral;
+    font-size: 100;
+  }
+  input{
+    margin: 50px;
+    height: 50px;
+    width: 500px;
+    font-size: 40px;
+    border: 5px #116466 solid;
+  }
+  button{
+    height: 20px;
+    width: 50px;
+  }
+  
