@@ -4,6 +4,7 @@ import "./App.css";
 function App () {
   let [todoList,setTodoList] =useState([]);
   let [newTask,setNewTask] = useState("");
+  // let isdone=false;
 
   const handletask = (Event) =>{
     setNewTask(Event.target.value);
@@ -24,9 +25,7 @@ function App () {
       else{
         setTodoList([...todoList,newTask]);
       }
-  // setTodoList([...todoList,newTask]);
     }
-
 
   const deletetask =(taskname) =>{
     const newlist =todoList.filter((task) => {
@@ -44,9 +43,9 @@ function App () {
       <div>
         {todoList.map((task) => {
           return (
-            <div><h1>{task}</h1>
+            <div ><h1>{task}</h1>
             <button onClick={() => deletetask(task)}>Remove</button>
-            <button >Done ?</button></div>
+            <button>Done ?</button></div>
           );
         })}
       </div>
